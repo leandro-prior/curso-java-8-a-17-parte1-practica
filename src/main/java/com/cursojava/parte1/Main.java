@@ -1,13 +1,11 @@
 package com.cursojava.parte1;
 
-import java.util.List;
-
 public class Main {
     public static void main(String[] args) {
-        PedidoService service = new PedidoService();
+        var service = new PedidoService();
         System.out.println("=== LISTADO DE PEDIDOS ===");
-        List<Pedido> pedidos = service.listarTodos();
-        for (Pedido p : pedidos) {
+        var pedidos = service.listarTodos();
+        for (var p : pedidos) {
             System.out.println(p);
         }
         System.out.println("\n=== BUSCAR PEDIDO EXISTENTE ===");
@@ -24,17 +22,17 @@ public class Main {
                 .map(Pedido::getCliente)
                 .forEach(c -> System.out.println("Cliente: " + c));
         System.out.println("\n=== BUSCAR PEDIDO INEXISTENTE ===");
-        ResultadoBusqueda res = service.buscarDetalle(99L);
+        var res = service.buscarDetalle(99L);
         if (res.getPedido() != null) {
             System.out.println("Detalle: " + res.getPedido());
         } else {
             System.out.println("Error: " + res.getMensajeError());
         }
-        double total = 0;
-        for (Pedido p : pedidos) {
+        var total = 0.0;
+        for (var p : pedidos) {
             total += p.getImporte();
         }
-        String informe = "==== INFORME ====\n" +
+        var informe = "==== INFORME ====\n" +
                 "Total pedidos: " + pedidos.size() + "\n" +
                 "Importe total: " + total + "\n";
         System.out.println("\n" + informe);
