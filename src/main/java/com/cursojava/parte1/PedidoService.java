@@ -1,17 +1,15 @@
 package com.cursojava.parte1;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class PedidoService {
-
-    private List<Pedido> pedidos = new ArrayList<>();
+    private List<Pedido> pedidos = List.of(
+            new Pedido(1L, "Juan", 120.50, EstadoPedido.PAGADO),
+            new Pedido(2L, "Ana", 75.00, EstadoPedido.PENDIENTE),
+            new Pedido(3L, "Luis", 210.30, EstadoPedido.CANCELADO));
 
     public PedidoService() {
-        pedidos.add(new Pedido(1L, "Juan", 120.50, EstadoPedido.PAGADO));
-        pedidos.add(new Pedido(2L, "Ana", 75.00, EstadoPedido.PENDIENTE));
-        pedidos.add(new Pedido(3L, "Luis", 210.30, EstadoPedido.CANCELADO));
     }
 
     public List<Pedido> listarTodos() {
@@ -29,7 +27,6 @@ public class PedidoService {
 
     public ResultadoBusqueda buscarDetalle(Long id) {
         Optional<Pedido> pedido = buscarPorId(id);
-
         if (pedido.isPresent()) {
             return new ResultadoBusqueda(pedido.get());
         }
