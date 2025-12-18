@@ -1,6 +1,8 @@
-com/cursojava/parte1/ResultadoBusqueda.class
-com/cursojava/parte1/Main.class
 com/cursojava/parte1/Pedido.class
+com/cursojava/parte1/ResultadoError.class
 com/cursojava/parte1/PedidoService.class
 com/cursojava/parte1/EstadoPedido.class
+com/cursojava/parte1/ResultadoBusqueda.class
+com/cursojava/parte1/Main.class
+com/cursojava/parte1/ResultadoExito.class
 com/cursojava/parte1/PedidoService$1.class
