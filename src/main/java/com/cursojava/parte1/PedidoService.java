@@ -30,6 +30,14 @@ public class PedidoService {
                 .or(() -> buscarPorId(1L));
     }
 
+    public int puntosPorEstado(EstadoPedido estado) {
+        return switch (estado) {
+            case PENDIENTE -> 1;
+            case PAGADO -> 5;
+            case CANCELADO -> 0;
+        };
+    }
+
     public ResultadoBusqueda buscarDetalle(Long id) {
         Optional<Pedido> pedido = buscarPorId(id);
         if (pedido.isPresent()) {
