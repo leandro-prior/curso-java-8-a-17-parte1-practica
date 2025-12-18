@@ -7,6 +7,7 @@ public class PedidoService {
     private final List<Pedido> pedidos = List.of(
             new Pedido(1L, "Juan", 120.50, EstadoPedido.PAGADO),
             new Pedido(2L, "Ana", 75.00, EstadoPedido.PENDIENTE),
+            new Pedido(4L, "Leandro", 75.00, EstadoPedido.PENDIENTE),
             new Pedido(3L, "Luis", 210.30, EstadoPedido.CANCELADO));
 
     public List<Pedido> listarTodos() {
