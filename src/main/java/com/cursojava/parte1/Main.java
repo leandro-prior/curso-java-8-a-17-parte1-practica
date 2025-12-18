@@ -18,6 +18,11 @@ public class Main {
         System.out.println("\n=== BUSCAR CON FALLBACK ===");
         service.buscarPorIdConFallback(99L)
                 .ifPresent(p -> System.out.println("Resultado fallback: " + p));
+        System.out.println("\n=== OPTIONAL STREAM ===");
+        service.buscarPorId(1L)
+                .stream()
+                .map(Pedido::getCliente)
+                .forEach(c -> System.out.println("Cliente: " + c));
         System.out.println("\n=== BUSCAR PEDIDO INEXISTENTE ===");
         ResultadoBusqueda res = service.buscarDetalle(99L);
         if (res.getPedido() != null) {
