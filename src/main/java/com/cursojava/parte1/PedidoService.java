@@ -25,6 +25,11 @@ public class PedidoService {
         return Optional.empty();
     }
 
+    public Optional<Pedido> buscarPorIdConFallback(Long id) {
+        return buscarPorId(id)
+                .or(() -> buscarPorId(1L));
+    }
+
     public ResultadoBusqueda buscarDetalle(Long id) {
         Optional<Pedido> pedido = buscarPorId(id);
         if (pedido.isPresent()) {

@@ -15,6 +15,9 @@ public class Main {
                 .ifPresentOrElse(
                         p -> System.out.println("Encontrado: " + p),
                         () -> System.out.println("No encontrado"));
+        System.out.println("\n=== BUSCAR CON FALLBACK ===");
+        service.buscarPorIdConFallback(99L)
+                .ifPresent(p -> System.out.println("Resultado fallback: " + p));
         System.out.println("\n=== BUSCAR PEDIDO INEXISTENTE ===");
         ResultadoBusqueda res = service.buscarDetalle(99L);
         if (res.getPedido() != null) {
